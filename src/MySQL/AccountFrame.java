@@ -36,7 +36,8 @@ public class AccountFrame extends JFrame {
     private JTextField tfon=new JTextField();
     private JTextField tfpassword=new JTextField();
     private JTextField tfdown=new JTextField();
-    JDBCDemo jdbcDemo=new JDBCDemo();
+   JDBCDemo jdbcDemo=new JDBCDemo();
+
     public AccountFrame(){
         //设置界面
         this.setSize(800,700);
