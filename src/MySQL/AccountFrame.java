@@ -176,6 +176,33 @@ public class AccountFrame extends JFrame {
 
 
         //删除监听
+        btndelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int row=table.getSelectedRow();
+                if(row <0){
+                    JOptionPane.showMessageDialog(null,JOptionPane.WARNING_MESSAGE);
+                }else {
+                    int option = JOptionPane.showConfirmDialog(AccountFrame.this,
+                            "确定要删除选中的数据吗？","删除确认",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE);
+
+
+                    if(option == 0) {
+                        // 删除操作. 1. 拿到用户选择的数据的id
+                        Object value = table.getValueAt(row,0);
+                        if(value != null && !(value + "").trim().equals("")) {
+                            int id = Integer.parseInt(table.getValueAt(row,0) + "");
+                            jdbcDemo.testDeleteData(id);
+                            //删除后重新加载数据
+                            initTable(tfsearch.getText());
+                        }
+                    }
+                }
+            }
+        });
+
 
     }
     private void initTable(String keyword) {

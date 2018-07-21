@@ -9,7 +9,7 @@ public class JDBCDemoUitl {
     public static Connection getconnection(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String dbURL="jdbc:mysql://localhost/baba";
+            String dbURL="jdbc:mysql://localhost:3306/baba";
             try {
                 Connection connection= DriverManager.getConnection(dbURL,"root","lld591921917");
                 return connection;
